@@ -3,10 +3,10 @@ import './SearchBar.css';
 import logo from '../../../Assets/icon.png';
 
 const SearchBar = (props) => {
-  if (!props.loggedIn) {
-    console.log('Not logged in ');
-    return <Redirect to='/' exact />;
-  }
+  // if (!props.loggedIn) {
+  //   console.log('Not logged in ');
+  //   return <Redirect to='/' exact />;
+  // }
 
   return (
     <form onSubmit={props.submit} className='search_bar'>

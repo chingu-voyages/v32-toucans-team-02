@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Booklist from '../../BookList/Booklist';
 import Header from '../../Navigator/Header/Header';
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 import './MyList.css';
 
 const MyList = ({ authService, cardRepo, loggedIn }) => {
   const [userId, setUserId] = useState(null);
   const [cards, setCards] = useState({});
-  let history =useHistory()
-  if(!loggedIn){
-    history.push('/')
-  }
+  let history = useHistory();
+  // if(!loggedIn){
+  //   history.push('/')
+  // }
   useEffect(() => {
     authService.getStatus(setUserId);
   }, [authService]);
@@ -40,7 +40,7 @@ const MyList = ({ authService, cardRepo, loggedIn }) => {
 
   return (
     <div>
-  {/*      if(loggedIn==false){
+      {/*      if(loggedIn==false){
     
     <Redirect to='/' />
   } */}

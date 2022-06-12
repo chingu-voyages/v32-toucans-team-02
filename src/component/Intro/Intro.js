@@ -7,7 +7,7 @@ const Intro = () => {
   const history = useHistory();
 
   const goToLogin = () => {
-    history.push('./Login');
+    history.push('./Search');
   };
 
   return (

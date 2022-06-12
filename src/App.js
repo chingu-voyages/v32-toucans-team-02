@@ -10,19 +10,17 @@ import ResultProvider from './component/Pages/Search/search-context';
 import './App.css';
 import Logout from './component/Logout/Logout';
 const App = ({ authService, cardRepo }) => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [userId, setUserId] = useState(null);
- authService.getStatus(setUserId);
+  const [loggedIn, setLoggedIn] = useState(true);
+  const [userId, setUserId] = useState(true);
+  authService.getStatus(setUserId);
   useEffect(() => {
     if (userId) {
-      console.log("App.js",userId)
+      console.log('App.js', userId);
       setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
     }
-    else{
-      setLoggedIn(false)
-    }
-  },[userId,authService]);
-
+  }, [userId, authService]);
 
   return (
     <ResultProvider>
@@ -54,10 +52,8 @@ const App = ({ authService, cardRepo }) => {
               authService={authService}
               cardRepo={cardRepo}
             />
-            
           </Route>
-          <Route 
-          path="/Logout" >
+          <Route path='/Logout'>
             <Logout loggedIn={loggedIn} authService={authService} />
           </Route>
         </Switch>
